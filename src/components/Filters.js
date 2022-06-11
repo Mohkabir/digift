@@ -1,8 +1,8 @@
 import React from "react";
 
-const Filters = () => {
+const Filters = ({ theme }) => {
   return (
-    <div className="filters">
+    <div className="filters" style={{ background: theme && "#1e1a1a" }}>
       <div>
         <div className="filter_head">
           <h5>Filters</h5>

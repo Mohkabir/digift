@@ -7,7 +7,7 @@ import "../scss/personalHomepage.scss";
 import LatestArrival from "../components/LatestArrival";
 import Review from "../components/Review";
 
-const PersonalHomePage = () => {
+const PersonalHomePage = ({ theme }) => {
   return (
     <div className="personalHomePage">
       <div className="hero">
@@ -17,10 +17,10 @@ const PersonalHomePage = () => {
           <img src={mastercard} alt="mastercard" />
         </div>
       </div>
-      <LatestArrival />
-      <Review />
+      <LatestArrival theme={theme} />
+      <Review theme={theme} />
       <div className="happiness">
-        <h1>Create happiness from buying a gift card today.</h1>
+        <h1>Create happ1iness from buying a gift card today.</h1>
       </div>
     </div>
   );

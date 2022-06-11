@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import logo from "../assets/images/logo.svg";
 import { Link } from "react-router-dom";
 import insta from "../assets/images/insta.svg";
@@ -11,15 +11,21 @@ import arrowRight from "../assets/images/arrowRight.svg";
 import light from "../assets/images/light.svg";
 import dark from "../assets/images/dark.svg";
 import getstarted from "../assets/images/getstarted.svg";
+import menu from "../assets/images/menu.png";
+import cancel from "../assets/images/cancel.png";
 
-
-
-const HomepageLayout = (props) => {
+const HomepageLayout = ({ setTheme, theme, children }) => {
+  const [menuStatus, setMenuStatus] = useState(false);
+  const handleMenu = () => {
+    setMenuStatus(!menuStatus);
+  };
   return (
-    <div>
-      <header>
-        <div id="logo">
-          <img src={logo} alt="logo" />
+    <div className="layout">
+      <header id="logo" className={theme ? "theme" : ""}>
+        <div>
+          <Link to="/">
+            <img src={logo} alt="logo" />
+          </Link>
         </div>
         <div>
           <Link to="/">
@@ -28,12 +34,11 @@ const HomepageLayout = (props) => {
             </p>
           </Link>
           <Link to="/businessHomepage">
-           <p>
-            Business <img src={arrowRight} alt="arrowRight" />
-          </p>
+            <p>
+              Business <img src={arrowRight} alt="arrowRight" />
+            </p>
           </Link>
 
-        
           <div className="input_wrapper">
             <img src={search} alt="search" />
             <input type="text" placeholder="Find cards anywhere" />
@@ -41,10 +46,10 @@ const HomepageLayout = (props) => {
         </div>
         <div>
           <div className="theme_toggle">
-            <div className="light">
+            <div className="light" onClick={() => setTheme(false)}>
               <img src={light} alt="light" />
             </div>
-            <div className="dark">
+            <div className="dark" onClick={() => setTheme(true)}>
               <img src={dark} alt="dark" />
             </div>
           </div>
@@ -57,8 +62,65 @@ const HomepageLayout = (props) => {
             </Link>
           </div>
         </div>
+        <img
+          className="menu"
+          onClick={handleMenu}
+          src={menuStatus ? cancel : menu}
+          alt=""
+        />
       </header>
-      <div>{props.children}</div>
+      <div
+        className="mobile_menu "
+        style={{
+          display: menuStatus ? "block" : "none",
+          background: theme && "#000000",
+        }}
+      >
+        <ul>
+          <li onClick={() => setMenuStatus(!menuStatus)}>
+            <Link to="/" style={{ color: theme && "#ffffff" }}>
+              Personal
+            </Link>
+          </li>
+          <li onClick={() => setMenuStatus(!menuStatus)}>
+            <Link to="/businessHomepage" style={{ color: theme && "#ffffff" }}>
+              Business
+            </Link>
+          </li>
+          <li onClick={() => setMenuStatus(!menuStatus)}>
+            <Link to="/businessHomepage" style={{ color: theme && "#ffffff" }}>
+              Login
+            </Link>
+          </li>
+          <li onClick={() => setMenuStatus(!menuStatus)}>
+            <Link to="/businessHomepage" style={{ color: theme && "#ffffff" }}>
+              GetStarted
+            </Link>
+          </li>
+
+          <li
+            onClick={() => {
+              setMenuStatus(!menuStatus);
+              setTheme(false);
+            }}
+          >
+            <Link to="/" style={{ color: theme && "#ffffff" }}>
+              Light mode
+            </Link>
+          </li>
+          <li
+            onClick={() => {
+              setMenuStatus(!menuStatus);
+              setTheme(true);
+            }}
+          >
+            <Link to="/" style={{ color: theme && "#ffffff" }}>
+              Dark mode
+            </Link>
+          </li>
+        </ul>
+      </div>
+      <div>{children}</div>
       <footer>
         <div className="row1">
           <div>
@@ -127,8 +189,9 @@ const HomepageLayout = (props) => {
         </div>
         <div className="row2">
           <div>
-            <a href="#logo"><img src={arrowTop} alt="arrowTop" /></a>
-            
+            <a href="#logo">
+              <img src={arrowTop} alt="arrowTop" />
+            </a>
           </div>
           <p>
             The website www.digiftng.com is owned and operated by Blinksky
