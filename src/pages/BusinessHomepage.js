@@ -1,11 +1,26 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "../scss/businessPage.scss";
 import dashboard from "../assets/images/dashboard.svg";
 import chooseUs from "../assets/images/choose-us.svg";
 import code from "../assets/images/code-img.svg";
 import design from "../assets/images/design.svg";
+import arrowLeft from "../assets/images/arrowLeft.svg";
+import arrowLeftBlack from "../assets/images/arrowRightBlack.svg";
+import star from "../assets/images/wide.svg";
+
 
 const BusinessHomepage = ({ theme }) => {
+
+   const scrollTop = () => {
+     window.scrollTo({
+       top: 0,
+       behaviour: "smooth",
+     });
+  };
+  useEffect(() => {
+   scrollTop()
+  }, [])
+  
   return (
     <div className="businessHomepage">
       <div className="hero">
@@ -18,8 +33,12 @@ const BusinessHomepage = ({ theme }) => {
             their business gift cards to a large number of people.
           </p>
           <div className="btn_group">
-            <button>Get started</button>
-            <button>Sign In</button>
+            <button>
+              Get started <img src={arrowLeft} alt="" />
+            </button>
+            <button>
+              Sign In <img src={arrowLeftBlack} alt="" />
+            </button>
           </div>
         </div>
         <div>
@@ -29,7 +48,10 @@ const BusinessHomepage = ({ theme }) => {
 
       <div className="section1">
         <div>
-          <p>Digift helps businesses </p>
+          <p className="star">
+            {/* <img  src={star} alt="" /> */}
+            <span> Digift helps businesses</span>
+          </p>
           <h1>
             Why do fast-growing <br /> merchant and vendor <br /> choose
             <img src={chooseUs} alt="chooseUs" />
@@ -40,7 +62,7 @@ const BusinessHomepage = ({ theme }) => {
             <br />
             company looking for bulk gift card solution, digift is for you.
           </p>
-          <p>Create an account today</p>
+          <p className="create">Create an account today</p>
         </div>
       </div>
       <div className="design">

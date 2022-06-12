@@ -61,6 +61,20 @@
         margin: 20px 0;
         color: #ffffff;
       }
+      .star{
+    //     display: flex;
+    //     align-items: center;
+    //     margin: 0 auto;
+    //     width: initial;
+    //     img{
+    // margin-top: -10px;
+    //     display: inline-block;
+    //     }
+      }
+       .create{
+           border-bottom: 1px solid #FFFFFF;
+            display: inline-block;
+        }
       img {
         margin-bottom: -10px;
       }
@@ -173,6 +187,7 @@
         p {
           margin: 20px 0;
         }
+       
         h1 {
           font-size: 30px;
         }

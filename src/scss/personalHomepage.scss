@@ -116,6 +116,7 @@
 
   .review {
     margin: 30px 0;
+    margin-top: 130px;
     h1 {
       width: 70%;
       text-align: center;
@@ -154,20 +155,26 @@
       }
     }
   }
-  .happiness {
-    background: linear-gradient(180deg, #004feb 0%, #006be0 100%);
-    box-shadow: 0px 12px 0px #5ca5ff;
-    padding-left: 70px;
-    margin: 136px 0;
-    height: 480px;
-    color: #ffffff;
-    border-radius: 32px;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    h1 {
-      width: 45%;
-    }
+  // .happiness {
+  //   background: linear-gradient(180deg, #004feb 0%, #006be0 100%);
+  //   box-shadow: 0px 12px 0px #5ca5ff;
+  //   padding-left: 70px;
+  //   margin: 136px 0;
+  //   height: 480px;
+  //   color: #ffffff;
+  //   border-radius: 32px;
+  //   display: flex;
+  //   justify-content: flex-start;
+  //   align-items: center;
+  //   h1 {
+  //     width: 45%;
+  //   }
+  // }
+  .happiness_img {
+    max-width: 100%;
+    width: 100%;
+    margin: 50px 0;
+     margin: 136px 0;
   }
 }
 
@@ -231,7 +238,7 @@
 @media (max-width: 728px) {
   .personalHomePage {
     .hero {
-      padding: 20px 0;
+      padding: 80px 0;
       margin-top: 30px;
       img {
         min-width: initial;
@@ -242,7 +249,7 @@
     .latestArrival {
       margin: 80px 0;
       & > h4 {
-        margin: 40px 0;
+        margin: 5px 0;
       }
       .arrivalWrapper {
         flex-direction: column;
@@ -282,7 +289,7 @@
     .review {
       margin: 30px 0;
       h1 {
-        width: 90%;
+        width: 100%;
         margin: 25px auto;
       }
       .card_wrapper {
@@ -290,17 +297,27 @@
         .review_card {
           width: 100%;
           margin-bottom: 20px;
+
+          & > div {
+            width: 90%;
+            padding: 30px 10px;
+          }
         }
       }
     }
-    .happiness {
-      margin: 86px 0;
-      height: 330px;
-      padding: 20px;
-      h1 {
-        width: 100%;
-        text-align: center;
-      }
-    }
+    // .happiness {
+    //   margin: 86px 0;
+    //   height: 330px;
+    //   padding: 20px;
+    //   h1 {
+    //     width: 100%;
+    //     text-align: center;
+    //   }
+    // }
+      .happiness_img {
+    max-width: 100%;
+    width: 100%;
+         margin: 86px 0;
+  }
   }
 }

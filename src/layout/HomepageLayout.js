@@ -19,10 +19,17 @@ const HomepageLayout = ({ setTheme, theme, children }) => {
   const handleMenu = () => {
     setMenuStatus(!menuStatus);
   };
+  const scrollTop = () => {
+    window.scrollTo({
+      top: 0,
+      behaviour: "smooth"
+    })
+  }
+
   return (
     <div className="layout">
-      <header id="logo" className={theme ? "theme" : ""}>
-        <div>
+      <header id="topPage" className={theme ? "theme" : ""}>
+        <div className="logo_wrapper">
           <Link to="/">
             <img src={logo} alt="logo" />
           </Link>
@@ -46,15 +53,23 @@ const HomepageLayout = ({ setTheme, theme, children }) => {
         </div>
         <div>
           <div className="theme_toggle">
-            <div className="light" onClick={() => setTheme(false)}>
+            <div
+              className={`light ${!theme && "active"}`}
+              onClick={() => setTheme(false)}
+            >
               <img src={light} alt="light" />
             </div>
-            <div className="dark" onClick={() => setTheme(true)}>
+            <div
+              className={`dark ${theme && "active"}`}
+              onClick={() => setTheme(true)}
+            >
               <img src={dark} alt="dark" />
             </div>
           </div>
           <div className="login">
-            <p>Login</p>
+            <Link to="/businessHomepage">
+               <p>Login</p>
+            </Link>
             <Link to="/businessHomepage">
               <button>
                 Get started <img src={getstarted} alt="getstarted" />
@@ -189,9 +204,7 @@ const HomepageLayout = ({ setTheme, theme, children }) => {
         </div>
         <div className="row2">
           <div>
-            <a href="#logo">
-              <img src={arrowTop} alt="arrowTop" />
-            </a>
+            <img onClick={scrollTop} src={arrowTop} alt="arrowTop" />
           </div>
           <p>
             The website www.digiftng.com is owned and operated by Blinksky

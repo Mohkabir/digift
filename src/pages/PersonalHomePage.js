@@ -1,13 +1,24 @@
-import React from "react";
+import React, { useEffect} from "react";
 import hero from "../assets/images/hero.svg";
 import amazon from "../assets/images/amazon.svg";
 import mastercard from "../assets/images/mastercard.svg";
+import lastCard from "../assets/images/LastCard.svg";
 
 import "../scss/personalHomepage.scss";
 import LatestArrival from "../components/LatestArrival";
 import Review from "../components/Review";
 
 const PersonalHomePage = ({ theme }) => {
+
+  const scrollTop = () => {
+    window.scrollTo({
+      top: 0,
+      behaviour: "smooth",
+    });
+  };
+  useEffect(() => {
+    scrollTop();
+  }, []);
   return (
     <div className="personalHomePage">
       <div className="hero">
@@ -19,9 +30,10 @@ const PersonalHomePage = ({ theme }) => {
       </div>
       <LatestArrival theme={theme} />
       <Review theme={theme} />
-      <div className="happiness">
+      {/* <div className="happiness">
         <h1>Create happ1iness from buying a gift card today.</h1>
-      </div>
+      </div> */}
+      <img src={lastCard} className="happiness_img" alt="" />
     </div>
   );
 };
